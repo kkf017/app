@@ -1,0 +1,38 @@
+Case Test : User service
+
+"user.test.01@gmail.com", "Login-Test-x01"
+
+
+# Test : get user
+curl -X GET -H "Accept: application/json" http://127.0.0.1:8000/user?uid=""
+
+# Test : Create User (signup)
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password": "Login-Test-x01"}' http://127.0.0.1:8000/signup
+
+
+# Test : Login
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password": "Login-Test-x01"}' http://127.0.0.1:8000/signin
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.XXX01@gmail.com", "password": "Login-Test-x01"}' http://127.0.0.1:8000/signin
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password": "Login-Test-xxxx01"}' http://127.0.0.1:8000/signin
+
+
+# Test : Update password
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password": "Login-Test-x01", "value": "Login-Test-x0001"}' http://127.0.0.1:8000/update/password
+
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password": "Login-Test-x01}' http://127.0.0.1:8000/signin
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password": "Login-Test-x0001"}' http://127.0.0.1:8000/signin
+
+
+# Test : Update email
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gmail.com", "value":"LillyXC"}' http://127.0.0.1:8000/update/email
+
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password":"Login-Test-x0001"}' http://127.0.0.1:8000/signin
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gmail.com", "password":"Login-Test-x0001"}' http://127.0.0.1:8000/signin
+
+
+# Test : Close Account
+curl -X DELETE http://127.0.0.1:8000/close/account?uid=19207be5d0ab07221d51d9d5d6afa6a294422454
+
+curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gmail.com", "password":"Login-Test-x0001"}' http://127.0.0.1:8000/signin
+
+
