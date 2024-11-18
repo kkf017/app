@@ -1,4 +1,4 @@
-# FastApi/ReactJS App
+# Example of application development
 
 Example of application with FastApi and ReactJS.
 
