@@ -2,24 +2,6 @@
 const global = require("./js/global");
 
 
-
-/*
-    https://www.freecodecamp.org/news/javascript-post-request-how-to-send-an-http-post-request-in-js/
-
-    let data = {element: "barium"};
-
-    fetch("url", {
-      method: "POST",
-      headers: {'Content-Type': 'application/json'}, 
-      body: JSON.stringify(data)
-    }).then(res => {
-      console.log("Request complete! response:", res);
-    });
-
-*/
-
-
-
 (global.app).get('/', (req, res) => {
     res.render("../templates/login.hbs");  
 });
