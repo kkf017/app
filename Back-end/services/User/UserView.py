@@ -39,7 +39,7 @@ def signup(user:User):
     	    URL: http://127.0.0.1:8000/signup
     """
     flag = createUserController(user.email, user.password)
-    return JSONResponse(content={"resp": {"flag": flag}})
+    return JSONResponse(content={"flag": flag})
 
 
 @app.post("/signin", response_class=JSONResponse)
@@ -49,7 +49,7 @@ def signin(user:User):
     	    URL: http://127.0.0.1:8000/signin
     """
     flag = loginUserController(user.email, user.password)
-    return JSONResponse(content={"resp": {"flag": flag}})
+    return JSONResponse(content={"flag": flag})
 
 
 
@@ -60,7 +60,7 @@ def updateEmail(user:User):
     	    URL: http://127.0.0.1:8000//update/email
     """
     flag = updateEmailUserController(user.email, user.value)
-    return JSONResponse(content={"resp": {"flag": flag}})
+    return JSONResponse(content={"flag": flag})
 
 
 @app.post("/update/password", response_class=JSONResponse)
@@ -70,7 +70,7 @@ def updatePassword(user:User):
     	    URL: http://127.0.0.1:8000//update/password
     """
     flag = updatePasswordUserController(user.email, user.password, user.value)
-    return JSONResponse(content={"resp": {"flag": flag}})
+    return JSONResponse(content={"flag": flag})
 
 
 
