@@ -67,22 +67,16 @@
     <div class="w3-padding-large" id="main">
           
         <h1> <strong>Post-IT </strong></h1>
+        
+         <p class="w3-text-light-grey" id="user-id"> {{uid}} </p>
+          <p class="w3-text-light-grey" id="postit-id"> {{iid}} </p>
 
 
           <!-- Content -->
           <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-            <h2 class="w3-wide">TITLE</h2>
-            <p class="w3-opacity"><i>date</i></p>
-            <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-              adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <div class="w3-row w3-padding-32">
-
-                <img src="https://cdn.pixabay.com/photo/2023/05/18/22/40/hacker-8003327_1280.png" style="width:60%">
-              <!--<div class="w3-third">
-                <p>Name</p>
-                <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-              </div>-->
+          
+	    <div id="display-postits"> </div>
+              
           </div>
           <!-- End Content -->
 
@@ -100,6 +94,32 @@
 
 
 </body>
+
+<script>
+	const postit = {"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"20699c248896eff923f23b93e208df2c1866c6c6","title":"Title 2 - wertzui","time":"07-11-2024 - wertzui","memo":"My new Memo 2 - wertzui","img":"https://cdn.pixabay.com/photo/2023/05/18/22/40/hacker-8003327_1280.png"};
+	
+	window.onload = () => { displayPostit() };
+	
+	function displayPostit(){
+		// send request to get Postit with uid, iid
+		console.log("From display, " + document.getElementById('user-id').innerHTML + ", " + document.getElementById('postit-id').innerHTML);
+		
+		// diplay Note
+		let div = document.getElementById('display-postits');
+		div.innerHTML =  `<h2 class="w3-wide">${postit.title}</h2>
+				    <p class="w3-opacity"><i>${postit.time}</i></p>
+				    <p class="w3-justify">${postit.memo}</p>
+				    <div class="w3-row w3-padding-32">
+
+					<img src=${postit.img} style="width:60%">
+				      <!--<div class="w3-third">
+					<p>Name</p>
+					<img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+				      </div>--> `;
+	}
+
+
+</script>
 
 
 </html>

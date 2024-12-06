@@ -66,20 +66,10 @@
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
           
-        <h1> <strong>Post-IT</strong></h1>
+        <h1><strong>Post-IT</strong></h1> <p class="w3-text-light-grey" id="user-id"> {{uid}} </p>
+        
 
-         <div class="w3-container w3-white w3-margin w3-padding-large">
-            <div class="w3-center w3-left">
-              <h5><span class="w3-opacity">May 2, 2016</span>, TITLE HEADING</h5>
-              <h3></h3>
-            </div>
-            <div class="w3-justify">
-              <!--<img src="/w3images/girl_hat.jpg" alt="Girl Hat" style="width:100%" class="w3-padding-16">-->
-               <p class="w3-right"><button class="w3-button w3-deep-orange w3-border" onclick="suppress(this)"><b><i class="fa fa-minus"></i></b></button></p>
-
-              <a href="/home/{{uid}}/postit/laskfgrhjztd"><p class="w3-right"><button class="w3-button w3-white w3-border" onclick="display(this)"><b><i class="fa fa-plus"></i></b></button></p></a>
-            </div>
-          </div>
+	<div id="display-postits"> </div>
 
      </div>
     <!-- End Page Content -->     
@@ -97,9 +87,46 @@
 
 
 <script>
-    function display(){}
+
+	var POSTITS = [{"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"29d37a720ac13ad7a938b8d59732a81884c9484c","title":"Title 1 - wertzui","time":"12-11-2024 - wertzui","memo":"My new Memo 1 - wertzui","img":"img1 - wertzui"},{"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"20699c248896eff923f23b93e208df2c1866c6c6","title":"Title 2 - wertzui","time":"07-11-2024 - wertzui","memo":"My new Memo 2 - wertzui","img":"img2 - wertzui"},{"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"556d47a76cb08f3622d9d30b9acba117c0a7114f","title":"Title 3 - wertzui","time":"07-11-2024 - wertzui","memo":"My new Memo 3 - wertzui","img":"img3 - wertzui"}]; // mock - data to display
+	
+	window.onload = () => { display() };
+	
+    	function display(){
+   
+    		// request to get data for a user (id);
+    		console.log("From display(uid, " + document.getElementById('user-id').innerHTML);
+    		
+    		displayPostits(POSTITS);
+    	}
+    	
+    	function displayPostits(items){
+    	
+    		/* Suppress(), and display() buttons */
+    		
+    		let div = document.getElementById('display-postits');
+		div.innerHTML = '';
+		
+    		for(i = 0; i < items.length ; i++){
+    			div.innerHTML += `<div class="w3-container w3-white w3-margin w3-padding-large">
+					    <div class="w3-center w3-left">
+					      <h5><span class="w3-opacity">${items[i].time}</span>, ${items[i].title}</h5>
+					      <h3></h3>
+					    </div>
+					    
+					     <div class="w3-justify">
+						      <!--<img src="/w3images/girl_hat.jpg" alt="Girl Hat" style="width:100%" class="w3-padding-16">-->
+						       <p class="w3-right"><button class="w3-button w3-deep-orange w3-border" onclick="suppress(this)"><b><i class="fa fa-minus"></i></b></button></p>
+
+						      <a href="/home/${items[i].uid}/postit/${items[i].iid}"><p class="w3-right"><button class="w3-button w3-white w3-border" onclick="display(this)"><b><i class="fa fa-plus"></i></b></button></p></a>
+					</div>
+					    
+				
+					  </div>`;
+    		}
+    	}
     
-    function suppress(){}
+    	function suppress(){}
 </script>
 
 

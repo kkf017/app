@@ -175,25 +175,29 @@
 </body>
 
 <script>
-    const URL = "http://0.0.0.0:8000/new";
+ 
+ 
+    const global = require("./js/global");
 
     function SignIn(){
+    	let resp = {"flag":true}; // mock - login
+    	
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         if(email!="" && password!=""){
 
             console.log("Signin " + email + ", " + password)
-
-            //window.location.href = "/home/löaeksrjetrhz";
-
+            
+            
             // send request to back-end
-            /*fetch(URL, {
-              method: "POST",
-              headers: {'Content-Type': 'application/json'}, 
-              body: JSON.stringify({email: email, password: password})
-            }).then(res => {
-              console.log("Request complete! response:", res);
-            });*/
+            // check password with mock
+            if(resp.flag){
+            	console.log("Login");
+            	window.location.assign('/home/kjbhvgcfxyg');
+            }else{
+            	console.log("ERROR");
+            }
+           
         }
     }
 
