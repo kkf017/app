@@ -177,11 +177,9 @@
 <script>
  
  
-    const global = require("./js/global");
+    //const global = require("../js/global");
 
-    function SignIn(){
-    	let resp = {"flag":true}; // mock - login
-    	
+    function SignIn(){    	
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
         if(email!="" && password!=""){
@@ -190,10 +188,12 @@
             
             
             // send request to back-end
-            // check password with mock
+     	    let resp = {"flag":true}; // mock - login: {"flag":true}, {"flag":false}
+     	    
             if(resp.flag){
             	console.log("Login");
-            	window.location.assign('/home/kjbhvgcfxyg');
+            	
+            	// redirect to homepage
             }else{
             	console.log("ERROR");
             }

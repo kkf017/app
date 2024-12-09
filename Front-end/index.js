@@ -4,6 +4,8 @@ const global = require("./js/global");
 
 (global.app).get('/', (req, res) => {
     res.render("../templates/login.hbs");  
+    
+    // res.redirect('https://www.google.com');
 });
 
 (global.app).get('/signup', (req, res) => {

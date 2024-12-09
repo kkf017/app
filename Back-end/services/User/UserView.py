@@ -15,6 +15,7 @@ from services.User.UserController import *
 
 
 class User(BaseModel):
+    uid: str = None
     email: str = None
     password: str = None
     value: str = None
@@ -57,9 +58,9 @@ def signin(user:User):
 def updateEmail(user:User):
     """
     	Function to update email (for a User).
-    	    URL: http://127.0.0.1:8000//update/email
+    	    URL: http://127.0.0.1:8000/update/email
     """
-    flag = updateEmailUserController(user.email, user.value)
+    flag = updateEmailUserController(user.uid, user.value)
     return JSONResponse(content={"flag": flag})
 
 
@@ -69,7 +70,7 @@ def updatePassword(user:User):
     	Function to update password (for a User).
     	    URL: http://127.0.0.1:8000//update/password
     """
-    flag = updatePasswordUserController(user.email, user.password, user.value)
+    flag = updatePasswordUserController(user.uid, user.value)
     return JSONResponse(content={"flag": flag})
 
 
@@ -83,6 +84,6 @@ def closeAccount(request:Request):
     uid = request.query_params['uid']
     flag = removeUserController(uid)
     # remove all Postits - for a user
-    #return JSONResponse(content={"resp": {"flag": flag}})
+    #return JSONResponse(content= {"flag": flag})
 
 

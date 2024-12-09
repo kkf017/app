@@ -69,35 +69,35 @@ def forgetUserController(email:str)->bool:
     pass
 
 
-def updateEmailUserController(email:str, value:str)->bool:
+def updateEmailUserController(uid:str, email:str)->bool:
     """ 
         Function to update email.
             input:
-                email, value - informations of user, email to update
+                uid, email- informations of user, email to update
             output:
                 boolean
        opt.
     """
-    if not existUserModel(email):
+    if not existUserModel(uid, False):
         return False
     # Check email - procedure
-    updateEmailUserModel(email, value)
+    updateEmailUserModel(uid, email)
     return True
 
 
-def updatePasswordUserController(email:str, password:str, value:str)->bool:
+def updatePasswordUserController(uid:str, password:str)->bool:
     """ 
         Function to update password.
             input:
-                password - informations of user
+                uidd, password - informations of user
             output:
                 boolean
        opt.
     """
-    if not existUserModel(email):
+    if not existUserModel(uid, False):
         return False
     # Check email, password - procedure
-    updatePasswordUserModel(email, password, value)
+    updatePasswordUserModel(uid, password)
     return True
    
 

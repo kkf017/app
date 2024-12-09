@@ -179,8 +179,16 @@
     function SignUp(){
         let email = document.getElementById("email").value;
         let password = document.getElementById("password").value;
-        // check if email, password is empty - send request
-        console.log(email + ", " + password)
+
+        if(email!="" && password!=""){
+        
+        	// send request - to create user
+        	console.log("Signup: " + email + ", " + password)
+        	
+        	//resp = {"flag":true}; // {"flag":false}, {"flag":true}
+        	//if(resp.flag===true){ //redirect to homepage }
+        
+        }
     }
 
 </script>
@@ -189,17 +197,10 @@
 <script>
     function SeeIt() {
       var x = document.getElementById("password");
-      var y = document.getElementById("password-check");
       if (x.type === "password"){
         x.type = "text";
       } else {
         x.type = "password";
-      }
-      
-      if (y.type === "password"){
-        y.type = "text";
-      } else {
-        y.type = "password";
       }
     }
 </script>

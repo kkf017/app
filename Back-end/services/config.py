@@ -6,7 +6,4 @@
 
 from fastapi import FastAPI
 
-
-#PATH = "/home/kkf/Repositories/PostIT"
-
 app = FastAPI()

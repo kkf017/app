@@ -40,7 +40,6 @@ def getPostit(request:Request):
     return JSONResponse(content=value)
 
 
-
 @app.get("/postits", response_class=JSONResponse)
 def getPostit(request:Request):
     """

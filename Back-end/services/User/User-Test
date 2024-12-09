@@ -24,7 +24,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmai
 
 
 # Test : Update email
-curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gmail.com", "value":"LillyXC"}' http://127.0.0.1:8000/update/email
+curl -X POST -H "Content-Type: application/json" -d '{"uid":"621e0d8d100f0c51f3152f843a3b72069e0e7a86", "value":"user.test.xxx01@gmail.com"}' http://127.0.0.1:8000/update/email
 
 curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.01@gmail.com", "password":"Login-Test-x0001"}' http://127.0.0.1:8000/signin
 curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gmail.com", "password":"Login-Test-x0001"}' http://127.0.0.1:8000/signin
@@ -34,5 +34,4 @@ curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gma
 curl -X DELETE http://127.0.0.1:8000/close/account?uid=19207be5d0ab07221d51d9d5d6afa6a294422454
 
 curl -X POST -H "Content-Type: application/json" -d '{"email":"user.test.x01@gmail.com", "password":"Login-Test-x0001"}' http://127.0.0.1:8000/signin
-
 

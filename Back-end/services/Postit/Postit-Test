@@ -26,3 +26,5 @@ curl -X DELETE 'http://127.0.0.1:8000/close/postit?uid=ef51a74e15ccaa681a94424e9
 
 # Test : Remove all Postits (for a User)
 curl -X DELETE http://127.0.0.1:8000/close/postits?uid=ef51a74e15ccaa681a94424e96c6e2e86ff2b948
+
+

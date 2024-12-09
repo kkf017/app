@@ -5,16 +5,6 @@
 
                     # To (...):
                         # Forget password
-
-                    # User cases:
-                        # create an Account (ok)
-                        # Login (ok)
-
-                        # Update Email (ok)
-                        # Update Password (ok)
-                        # Close account (ok)
-                        # get a User (with uid)
-
 -----------------------------------------------------------------------------------------------------------------"""
 
 from services.database.database import *
@@ -53,7 +43,7 @@ def createUserModel(email:str, password:str)->None:
 
 
 
-def existUserModel(email:str)->bool:
+def existUserModel(email:str, flag:bool=True)->bool:
     """ 
         Function to check if a User exists (in database).
             input:
@@ -62,7 +52,9 @@ def existUserModel(email:str)->bool:
                 boolean
        opt.
     """
-    value = request(f'''SELECT * FROM {TABLE_USER} WHERE uid="{HASH(email)}";''')
+    if flag:
+    	email = HASH(email)
+    value = request(f'''SELECT * FROM {TABLE_USER} WHERE uid="{email}";''')
     if not (value == []):
         return True
     return False
@@ -101,29 +93,29 @@ def getUserModel(uid:str)->Dict[str, str]:
 
 
 
-def updateEmailUserModel(email:str, value:str)->None:
+def updateEmailUserModel(uid:str, email:str)->None:
     """ 
         Function to update email (in database).
             input:
-                email, value - informations of user, (email to update)
+                uid, email - informations of user, (email to update)
             output:
                 boolean
        opt.
     """
-    value = request(f'''UPDATE {TABLE_USER} SET Email = "{value}", uid = "{HASH(value)}" WHERE uid = "{HASH(email)}";''')
+    value = request(f'''UPDATE {TABLE_USER} SET Email = "{email}", uid = "{HASH(email)}" WHERE uid = "{uid}";''')
 
 
 
-def updatePasswordUserModel(email:str, password:str, value:str)->None:
+def updatePasswordUserModel(uid:str, password:str)->None:
     """ 
         Function to update password (in database).
             input:
-                email, password, value - informations of user, (password to update)
+                uid, password - informations of user, (password to update)
             output:
                 boolean
        opt.
     """
-    value = request(f'''UPDATE {TABLE_USER} SET Password = "{HASH(value)}" WHERE uid = "{HASH(email)}";''')
+    value = request(f'''UPDATE {TABLE_USER} SET Password = "{HASH(password)}" WHERE uid = "{uid}";''')
  
    
 

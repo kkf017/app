@@ -66,7 +66,7 @@
     <!-- Page Content -->
     <div class="w3-padding-large" id="main">
           
-        <h1> <strong>Post-IT </strong></h1>
+        <h1> <strong>Post-IT </strong></h1> <p class="w3-text-light-grey" id="user-id"> {{uid}} </p>
 
         <!-- Container (Contact Section) -->
         <div class="w3-content w3-container w3-padding-64">
@@ -119,36 +119,38 @@
 
 <script>
 
-    // get ui in url (params)
-    
     function UpdateEmail(){
         let email = document.getElementById("Email").value;
-        console.log(email);
+        
+        // request to update email 
+        console.log("From UpdateEmail, " + document.getElementById('user-id').innerHTML + ", " + email);
+        // 621e0d8d100f0c51f3152f843a3b72069e0e7a86 , newEmail.017@yahoo.com
     }
     
     function UpdatePassword(){
         let password = document.getElementById("Password").value;
-        console.log(password)
+        
+        // request to update password 
+        console.log("From UpdatePassword, " + document.getElementById('user-id').innerHTML+ ", " + password);
+        //From UpdatePassword,  621e0d8d100f0c51f3152f843a3b72069e0e7a86 , newPassword-01
     }
 
-    function SuppressAccount(){}
+    function SuppressAccount(){
+    
+    	// request to suppress account 
+        console.log("From SuppressAccount, " + document.getElementById('user-id').innerHTML);
+        //From SuppressAccount,  621e0d8d100f0c51f3152f843a3b72069e0e7a86
+    }
 </script>
 
 
 <script>
     function SeeIt() {
-      var x = document.getElementById("password");
-      var y = document.getElementById("password-check");
+      var x = document.getElementById("Password");
       if (x.type === "password"){
         x.type = "text";
       } else {
         x.type = "password";
-      }
-      
-      if (y.type === "password"){
-        y.type = "text";
-      } else {
-        y.type = "password";
       }
     }
 </script>

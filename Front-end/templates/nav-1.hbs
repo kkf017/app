@@ -88,14 +88,15 @@
 
 <script>
 
-	var POSTITS = [{"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"29d37a720ac13ad7a938b8d59732a81884c9484c","title":"Title 1 - wertzui","time":"12-11-2024 - wertzui","memo":"My new Memo 1 - wertzui","img":"img1 - wertzui"},{"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"20699c248896eff923f23b93e208df2c1866c6c6","title":"Title 2 - wertzui","time":"07-11-2024 - wertzui","memo":"My new Memo 2 - wertzui","img":"img2 - wertzui"},{"uid":"ef51a74e15ccaa681a94424e96c6e2e86ff2b948","iid":"556d47a76cb08f3622d9d30b9acba117c0a7114f","title":"Title 3 - wertzui","time":"07-11-2024 - wertzui","memo":"My new Memo 3 - wertzui","img":"img3 - wertzui"}]; // mock - data to display
+	var POSTITS =  [{"uid":"621e0d8d100f0c51f3152f843a3b72069e0e7a86","iid":"234c6d74f3ee6ea4a2f031ae72b6a013865cfe5b","title":"Gingerbread Recipie","time":"2024-12-12","memo":"300 g de farine \\n125 g de beurre mou \\n90 g de cassonade \\n50 g de miel ou mélasse \\n1 oeuf \\n1 cuil. à café de bicarbonate de soude ou levure chimique \\n1 cuil. à soupe de gingembre en poudre \\n2 cuil. à café de cannelle en poudre \\n1 cuil. à café de 4 épices \\n2 pincées de sel","img":"https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fvector-gratis%2Fgalleta-jengibre-letras_52683-31187.jpg&tbnid=cNeA5umIaiZynM&vet=10CAkQxiAoCWoXChMI-JSd-eyaigMVAAAAAB0AAAAAEA4..i&imgrefurl=https%3A%2F%2Fwww.freepik.es%2Fvector-gratis%2Fgalleta-jengibre-letras_6415638.htm&docid=zt5bsbjP1Wv5yM&w=626&h=417&itg=1&q=cute%20gingerbreadd&client=ubuntu-sn&ved=0CAkQxiAoCWoXChMI-JSd-eyaigMVAAAAAB0AAAAAEA4"}];
 	
 	window.onload = () => { display() };
 	
     	function display(){
    
     		// request to get data for a user (id);
-    		console.log("From display(uid, " + document.getElementById('user-id').innerHTML);
+    		uid = document.getElementById('user-id').innerHTML;
+    		console.log("From display: uid - " + uid);
     		
     		displayPostits(POSTITS);
     	}
@@ -115,8 +116,7 @@
 					    </div>
 					    
 					     <div class="w3-justify">
-						      <!--<img src="/w3images/girl_hat.jpg" alt="Girl Hat" style="width:100%" class="w3-padding-16">-->
-						       <p class="w3-right"><button class="w3-button w3-deep-orange w3-border" onclick="suppress(this)"><b><i class="fa fa-minus"></i></b></button></p>
+						       <p class="w3-right"><button class="w3-button w3-deep-orange w3-border" onclick="removePostit(this.id)" id=${items[i].iid}><b><i class="fa fa-minus"></i></b></button></p>
 
 						      <a href="/home/${items[i].uid}/postit/${items[i].iid}"><p class="w3-right"><button class="w3-button w3-white w3-border" onclick="display(this)"><b><i class="fa fa-plus"></i></b></button></p></a>
 					</div>
@@ -126,7 +126,12 @@
     		}
     	}
     
-    	function suppress(){}
+    	function removePostit(iid){
+    		uid = document.getElementById('user-id').innerHTML;
+    		
+    		 // send request - to remove postit
+    		console.log("Remove Post-IT: " + uid + " - " + iid)
+    	}
 </script>
 
 
