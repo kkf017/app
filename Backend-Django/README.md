@@ -41,6 +41,6 @@ poetry update package
 To clear the User database, the following command can be used:
 ```python
 poetry run python3 manage.py clear_database_user
-``
+```
 
 
