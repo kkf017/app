@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 
 from User import views as UserViews
+from Postit import views as PostitViews
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +30,11 @@ urlpatterns = [
     path('update/email/', UserViews.updateEmailUserView),
     path('update/password/', UserViews.updatePasswordUserView),
     path('close', UserViews.removeUserView),
+    
+    path('postitss/', PostitViews.getPostitsAllView),
+    path('new/', PostitViews.createPostitView),
+    path('postit', PostitViews.getPostitView),
+    path('postits', PostitViews.getPostitsView),
+    path('close/postit', PostitViews.removePostitView),
+    path('close/postits', PostitViews.removePostitsView),
 ]
