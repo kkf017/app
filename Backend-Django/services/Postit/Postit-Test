@@ -36,5 +36,8 @@ curl -X DELETE 'http://127.0.0.1:8000/close/postit?uid=621e0d8d100f0c51f3152f843
 curl -X GET -H "Accept: application/json" http://127.0.0.1:8000/postit?uid=621e0d8d100f0c51f3152f843a3b72069e0e7a86&iid=98aea12073fc8dadd949bc6153b424d5ef95e34b
 
 
+curl -X DELETE http://127.0.0.1:8000/close/postits?uid=621e0d8d100f0c51f3152f843a3b72069e0e7a86
+
+
 
 
