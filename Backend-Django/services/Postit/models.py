@@ -17,6 +17,8 @@ class Postit(models.Model):
 	time = models.CharField(max_length=255)
 	memo = models.CharField(max_length=1025)
 	img = models.CharField(max_length=655)
+	
+	
 
 def getPostitsAllModel()->List[Dict[str, str]]:
 	"""
@@ -31,8 +33,6 @@ def getPostitsAllModel()->List[Dict[str, str]]:
 	return res
 	
 
-
-#############################################################################################
 
 def createPostitModel(uid:str, title:str, time:str, memo:str, img:str)->bool:
 	"""
