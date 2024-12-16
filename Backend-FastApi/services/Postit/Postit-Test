@@ -1,30 +1,25 @@
 Case Test : Postit service.
 
 
+# Test : Create Postit
 curl -X POST -H "Content-Type: application/json" -d '{"uid": "", "title": "", "time": "", "memo": "", "img": ""}' http://127.0.0.1:8000/new
 
 
-# Test : Create Postit
-curl -X POST -H "Content-Type: application/json" -d '{"uid": "ef51a74e15ccaa681a94424e96c6e2e86ff2b948", "title": "Title 1 - wertzui", "time": "12-11-2024 - wertzui", "memo": "My new Memo 1 - wertzui", "img": "img1 - wertzui"}' http://127.0.0.1:8000/new
-
-curl -X POST -H "Content-Type: application/json" -d '{"uid": "ef51a74e15ccaa681a94424e96c6e2e86ff2b948", "title": "Title 2 - wertzui", "time": "07-11-2024 - wertzui", "memo": "My new Memo 2 - wertzui", "img": "img2 - wertzui"}' http://127.0.0.1:8000/new
-
-curl -X POST -H "Content-Type: application/json" -d '{"uid": "ef51a74e15ccaa681a94424e96c6e2e86ff2b948", "title": "Title 3 - wertzui", "time": "07-11-2024 - wertzui", "memo": "My new Memo 3 - wertzui", "img": "img3 - wertzui"}' http://127.0.0.1:8000/new
-
-curl -X POST -H "Content-Type: application/json" -d '{"uid": "kjhgfui", "title": "Title 1 - kjhgfui", "time": "12-11-2024 - kjhgfui", "memo": "My new Memo 1 - kjhgfui", "img": "img1 - kjhgfui"}' http://127.0.0.1:8000/new
-
 
 # Test : Get a Postit
-curl -X GET -H "Accept: application/json" http://127.0.0.1:8000/postit?uid=ef51a74e15ccaa681a94424e96c6e2e86ff2b948&iid=20699c248896eff923f23b93e208df2c1866c6c6
+curl -X GET -H "Accept: application/json" http://127.0.0.1:8000/postit?uid=""&iid=""
 
 # Test : Get all Postits (for a User)
-curl -X GET -H "Accept: application/json" http://127.0.0.1:8000/postits?uid=ef51a74e15ccaa681a94424e96c6e2e86ff2b948
+curl -X GET -H "Accept: application/json" http://127.0.0.1:8000/postits?uid=""
 
 
 # Test : Remove one Postit
-curl -X DELETE 'http://127.0.0.1:8000/close/postit?uid=ef51a74e15ccaa681a94424e96c6e2e86ff2b948&iid=20699c248896eff923f23b93e208df2c1866c6c6'
+curl -X DELETE 'http://127.0.0.1:8000/close/postit?uid=""&iid=""
 
 # Test : Remove all Postits (for a User)
-curl -X DELETE http://127.0.0.1:8000/close/postits?uid=ef51a74e15ccaa681a94424e96c6e2e86ff2b948
+curl -X DELETE http://127.0.0.1:8000/close/postits?uid=""
+
+
+
 
 
