@@ -7,9 +7,6 @@ from services.Postit.PostitModel import *
 
 
 
-
-
-
 @app.route("/")
 def home():
     return f"Hello, from Flask App."
