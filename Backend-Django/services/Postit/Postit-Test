@@ -23,7 +23,7 @@ curl -X DELETE http://127.0.0.1:8000/close/postits?uid=""
 
 
 
-curl -X POST -H "Content-Type: application/json" -d '{"uid": "621e0d8d100f0c51f3152f843a3b72069e0e7a86", "title": "Gingerbread recipie", "time": "2024-12-16", "memo": "This is my gingerbrea recipie.", "img": "url-img"}' http://127.0.0.1:8000/new
+curl -X POST -H "Content-Type: application/json" -d '{"uid": "621e0d8d100f0c51f3152f843a3b72069e0e7a86", "title": "Gingerbread recipie", "time": "2024-12-16", "memo": "This is my gingerbread recipie.", "img": "url-img"}' http://127.0.0.1:8000/new
 
 curl -X POST -H "Content-Type: application/json" -d '{"uid": "621e0d8d100f0c51f3152f843a3b72069e0e7a86", "title": "Candy Cane recipie", "time": "2024-12-16", "memo": "This is my candy cane recipie.", "img": "url-img"}' http://127.0.0.1:8000/new
 

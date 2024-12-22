@@ -20,12 +20,13 @@ curl -X POST -H "Content-Type: application/json" -d '{"email":"", "password": ""
 
 
 # Test : Update email
-curl -X POST -H "Content-Type: application/json" -d '{"uid":"", "email":""}' http://127.0.0.1:8000/update/email
+curl -X POST -H "Content-Type: application/json" -d '{"uid":"", "value":""}' http://127.0.0.1:8000/update/email
 
 
 
 # Test : Close Account
 curl -X DELETE -H "Content-Type: application/json" http://127.0.0.1:8000/close?uid=""
+
 
 
 
